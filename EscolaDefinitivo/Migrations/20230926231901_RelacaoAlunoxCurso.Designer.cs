@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EscolaDefinitivo.Migrations
 {
     [DbContext(typeof(EscolaContext))]
-    [Migration("20230926181008_LimparCursoId")]
-    partial class LimparCursoId
+    [Migration("20230926231901_RelacaoAlunoxCurso")]
+    partial class RelacaoAlunoxCurso
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,7 @@ namespace EscolaDefinitivo.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CursoId")
+                    b.Property<int>("CursoId")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -108,18 +108,34 @@ namespace EscolaDefinitivo.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DatadeCadastro = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "Admin@admin.com",
+                            Login = "Admin",
+                            Nome = "Ademiro",
+                            Perfil = 1,
+                            Senha = "Admin123"
+                        });
                 });
 
             modelBuilder.Entity("EscolaDefinitivo.Models.Aluno", b =>
                 {
-                    b.HasOne("EscolaDefinitivo.Models.Curso", null)
-                        .WithMany("AlunosMatriculados")
-                        .HasForeignKey("CursoId");
+                    b.HasOne("EscolaDefinitivo.Models.Curso", "Curso")
+                        .WithMany("Alunos")
+                        .HasForeignKey("CursoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Curso");
                 });
 
             modelBuilder.Entity("EscolaDefinitivo.Models.Curso", b =>
                 {
-                    b.Navigation("AlunosMatriculados");
+                    b.Navigation("Alunos");
                 });
 #pragma warning restore 612, 618
         }

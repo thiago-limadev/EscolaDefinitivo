@@ -1,4 +1,5 @@
 ﻿
+using EscolaDefinitivo.Data.EntityConfig;
 using EscolaDefinitivo.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -16,6 +17,13 @@ namespace EscolaDefinitivo.Data
 
         public DbSet<Usuario> Usuarios { get; set; }
 
-     
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.ApplyConfiguration(new AlunoConfiguration());
+            modelBuilder.ApplyConfiguration(new CursoConfiguration());
+            modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
+        }
+
     }
 }

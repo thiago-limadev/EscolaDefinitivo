@@ -1,4 +1,5 @@
-﻿@model Aluno
+﻿@using EscolaDefinitivo.Models.ViewData;
+@model EditarAlunoViewData
 @{
     ViewData["Title"] = "Editar Aluno";
 }
@@ -9,23 +10,28 @@
 
 <form asp-controller="Aluno" asp-action="Atualizar" method="post">
 
-    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="@Model.Aluno.Id" />
     <div class="form-group">
         <label for="Nome">Nome do Aluno</label>
-        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do aluno">
-        @Html.ValidationMessageFor(x => x.Nome)
+        <input type="text" asp-for="@Model.Aluno.Nome" class="form-control" placeholder="Digite o nome do aluno">
+        @Html.ValidationMessageFor(x => x.Aluno.Nome)
     </div>
     <br />
     <div class="form-group">
-        <label for="email">E-mail do Aluno</label>
-        <input type="text" asp-for="Email" class="form-control" placeholder="exemplo@exemplo.com">
-        @Html.ValidationMessageFor(x => x.Email)
+        <label for="Email">E-mail do Aluno</label>
+        <input type="text" asp-for="@Model.Aluno.Email" class="form-control" placeholder="exemplo@exemplo.com">
+        @Html.ValidationMessageFor(x => x.Aluno.Email)
     </div>
     <br />
     <div class="form-group">
         <label for="Telefone">Telefone de Contato</label>
-        <input type="text" asp-for="Telefone" class="form-control" placeholder="XX XXXXX-XXXX">
-        @Html.ValidationMessageFor(x => x.Telefone)
+        <input type="text" asp-for="@Model.Aluno.Telefone" class="form-control" placeholder="XX XXXXX-XXXX">
+        @Html.ValidationMessageFor(x => x.Aluno.Telefone)
+    </div>
+    <div class="form-group">
+        <label for="CursoId">Selecione o Curso</label>
+        <select name="Curso" asp-for="@Model.Aluno.CursoId" asp-items="@Model.Cursos" class="form-control" ></select>
+        
     </div>
     <br />
     <a class="btn btn-secondary" asp-controller="Aluno" asp-action="Index" role="button">Voltar</a>

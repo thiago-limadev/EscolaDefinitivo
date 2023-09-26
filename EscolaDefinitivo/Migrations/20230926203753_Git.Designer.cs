@@ -4,6 +4,7 @@ using EscolaDefinitivo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EscolaDefinitivo.Migrations
 {
     [DbContext(typeof(EscolaContext))]
-    partial class EscolaContextModelSnapshot : ModelSnapshot
+    [Migration("20230926203753_Git")]
+    partial class Git
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,32 +108,18 @@ namespace EscolaDefinitivo.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DatadeCadastro = new DateTime(2023, 9, 26, 20, 26, 55, 758, DateTimeKind.Local).AddTicks(3759),
-                            Email = "Admin@admin.com",
-                            Login = "Admin",
-                            Nome = "Ademiro",
-                            Perfil = 1,
-                            Senha = "Admin123"
-                        });
                 });
 
             modelBuilder.Entity("EscolaDefinitivo.Models.Aluno", b =>
                 {
-                    b.HasOne("EscolaDefinitivo.Models.Curso", "Curso")
-                        .WithMany("Alunos")
+                    b.HasOne("EscolaDefinitivo.Models.Curso", null)
+                        .WithMany("AlunosMatriculados")
                         .HasForeignKey("CursoId");
-
-                    b.Navigation("Curso");
                 });
 
             modelBuilder.Entity("EscolaDefinitivo.Models.Curso", b =>
                 {
-                    b.Navigation("Alunos");
+                    b.Navigation("AlunosMatriculados");
                 });
 #pragma warning restore 612, 618
         }

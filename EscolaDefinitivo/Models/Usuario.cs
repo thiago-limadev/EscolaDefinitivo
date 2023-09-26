@@ -26,9 +26,27 @@ namespace EscolaDefinitivo.Models
         public  DateTime DatadeCadastro { get; set; }
         public DateTime? DatadeAtualizacao { get; set; }
 
+
+        public Usuario()
+        {
+            
+        }
+
+        public Usuario(string nome, string login, string email, string senha, PerfilEnum? perfil)
+        {
+            Nome = nome;
+            Login = login; 
+            Email = email; 
+            Senha = senha;    
+            Perfil = perfil;
+            DatadeCadastro = DateTime.Now;
+        }
+
         public bool SenhaValida(string senha)
         {
             return Senha == senha;
         }
+
+
     }
 }

@@ -16,9 +16,8 @@ namespace EscolaDefinitivo.Models
         [Phone(ErrorMessage = "Digite um telefone válido")]
         public string Telefone { get; set; }
 
-       
-      
-         
+        public int? CursoId { get; set; }
+        public virtual Curso? Curso { get; set; }
 
     }
 }
