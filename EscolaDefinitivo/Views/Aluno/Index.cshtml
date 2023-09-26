@@ -1,0 +1,89 @@
+﻿@model List<Aluno>
+@{
+    ViewData["Title"] = "Lista de Alunos";
+}
+
+    @if(TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+    @if (TempData["MensagemErro"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
+
+    }
+
+<div class="text-center">
+    <h1>Alunos</h1>
+    
+    <div class="text-start" >
+       <a class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Criar">Adicionar Aluno</a>
+    </div>
+    
+    <br />
+    <table class="table" id="tabela-alunos">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID do Aluno</th>
+                <th scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Telefone</th>               
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model != null && Model.Any())
+            {
+                foreach(Aluno aluno in Model)
+                {
+                <tr>
+                    <th scope="row">@aluno.Id</th>
+                    <td>@aluno.Nome</td>
+                    <td>@aluno.Email</td>
+                    <td>@aluno.Telefone</td>                  
+                        <td>
+                            <div  class="btn-group" role="group" aria-label="Exemplo básico">
+                                <a role="button" class="btn btn-secondary" asp-route-id="@aluno.Id" asp-controller="Aluno" asp-action="Editar">Editar</a>
+                                <a role="button" style="margin-left:5px" class="btn btn-danger" asp-route-id="@aluno.Id" asp-controller="Aluno" data-toggle="modal" data-target="#ExemploModalCentralizado_@aluno.Id">Excluir</a>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="ExemploModalCentralizado_@aluno.Id" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                                      <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h5 class="modal-title" id="TituloModalCentralizado"> ATENÇÃO!</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <p>Tem certeza que deseja excluir o aluno @aluno.Nome ?</p>
+                                            <br/>
+                                            <p> ESTA AÇÃO É IRREVERSSÍVEL !</p>
+                                          </div>
+                                          <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <a type="button" class="btn btn-primary" asp-action="Apagar" asp-controller="Aluno" asp-route-id="@aluno.Id">Confirmar</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                        
+                            </div>
+                        </td>            
+                </tr>
+                }
+            }
+        </tbody>
+    
+    </table>
+</div>

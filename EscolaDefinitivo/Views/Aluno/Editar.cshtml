@@ -1,0 +1,34 @@
+﻿@model Aluno
+@{
+    ViewData["Title"] = "Editar Aluno";
+}
+
+<div class="text-center">
+    <h1>Dados do Aluno</h1>
+</div>
+
+<form asp-controller="Aluno" asp-action="Atualizar" method="post">
+
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="Nome">Nome do Aluno</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do aluno">
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="email">E-mail do Aluno</label>
+        <input type="text" asp-for="Email" class="form-control" placeholder="exemplo@exemplo.com">
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="Telefone">Telefone de Contato</label>
+        <input type="text" asp-for="Telefone" class="form-control" placeholder="XX XXXXX-XXXX">
+        @Html.ValidationMessageFor(x => x.Telefone)
+    </div>
+    <br />
+    <a class="btn btn-secondary" asp-controller="Aluno" asp-action="Index" role="button">Voltar</a>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+
+</form>

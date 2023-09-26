@@ -1,0 +1,41 @@
+﻿@model Aluno
+@{
+    ViewData["Title"] = "Adicionar Aluno";
+}
+
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+
+}
+<div class="text-center">
+    <h1>Dados do Aluno</h1>
+</div>
+
+<form asp-controller="Aluno" asp-action="Criar" method="post">
+    <div class="form-group">
+        <label for="Nome">Nome do Aluno</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do aluno">
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+    <br/>
+    <div class="form-group">
+        <label for="Email">E-mail do Aluno</label>
+        <input type="text" asp-for="Email" class="form-control" placeholder="exemplo@exemplo.com">
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    <br/>
+    <div class="form-group">
+        <label for="Telefone">Telefone de Contato</label>
+        <input type="text" asp-for="Telefone" class="form-control" placeholder="XX XXXXX-XXXX">
+        @Html.ValidationMessageFor(x => x.Telefone)
+    </div>
+    <br/>
+    <a class="btn btn-secondary" asp-controller="Aluno" asp-action="Index" role="button">Voltar</a>
+    <button type="submit" class="btn btn-primary">Adicionar</button>
+   
+</form>

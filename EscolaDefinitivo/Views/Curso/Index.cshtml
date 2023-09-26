@@ -1,0 +1,70 @@
+﻿@model List<Curso>
+
+@{
+    ViewData["Title"] = "Lista de Cursos";
+}
+
+<div class="text-center">
+    <h1>Listagem de Cursos</h1>
+
+    <div class="text-start">
+        <a class="btn btn-primary" role="button" asp-controller="Curso" asp-action="Criar">Adicionar Curso</a>
+    </div>
+
+    <br />
+    <table class="table" id="tabela-cursos">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>                
+                <th scope="col"></th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (Curso curso in Model)
+                {
+                    <tr>
+                        <th scope="row">@curso.Id</th>
+                        <td>@curso.Nome</td>                        
+                       <td>
+                            <div  class="btn-group" role="group" aria-label="Exemplo básico">
+                                <a role="button" class="btn btn-secondary" asp-route-id="@curso.Id" asp-controller="Curso" asp-action="Editar">Editar</a>
+                                <a role="button" style="margin-left:5px" class="btn btn-danger" asp-route-id="@curso.Id" data-toggle="modal" data-target="#ExemploModalCentralizado_@curso.Id">Excluir</a>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="ExemploModalCentralizado_@curso.Id" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="TituloModalCentralizado"> ATENÇÃO!</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Tem certeza que deseja excluir este @curso.Nome ?</p>
+                                                <br />
+                                                <p> ESTA AÇÃO É IRREVERSSÍVEL !</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                <a type="button" class="btn btn-primary" asp-action="Apagar" asp-controller="Curso" asp-route-id="@curso.Id">Confirmar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+
+    </table>
+</div>

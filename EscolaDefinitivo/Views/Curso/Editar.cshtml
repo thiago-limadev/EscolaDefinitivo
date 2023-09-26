@@ -1,0 +1,20 @@
+﻿@model Curso
+@{
+    ViewData["Title"] = "Editar Curso";
+}
+
+<div class="text-center">
+    <h1>Dados do Curso</h1>
+</div>
+
+<form asp-controller="Curso" asp-action="Atualizar" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="Nome">Nome do Curso</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do curso">
+    </div>
+    <br />
+    <a class="btn btn-secondary" asp-controller="Curso" asp-action="Index" role="button">Voltar</a>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+
+</form>

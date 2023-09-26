@@ -1,0 +1,46 @@
+﻿@using EscolaDefinitivo.Enums;
+@model Usuario
+@{
+    ViewData["Title"] = "Editar Usuario";
+}
+
+<div class="text-center">
+    <h1>Dados do Usuario</h1>
+</div>
+
+    <form asp-controller="Usuario" asp-action="Atualizar" method="post">
+
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label for="Nome">Nome do Usuario</label>
+            <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do usuario">
+            @Html.ValidationMessageFor(x => x.Nome)
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="email">E-mail do Usuario</label>
+            <input type="text" asp-for="Email" class="form-control" placeholder="exemplo@exemplo.com">
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="login">Login do Usuario</label>
+            <input type="text" asp-for="Login" class="form-control" placeholder="Digite o Login do usuario">
+            @Html.ValidationMessageFor(x => x.Login)
+        </div>
+        <br />
+        <div class="form-group">
+            <label for="perfil">Perfil do Usuario</label>
+            <select asp-for="Perfil" class="form-control">
+                <option value="0">Selecione</option>
+                <option value="@PerfilEnum.Admin">Administrador</option>
+                <option value="@PerfilEnum.Padrao">Padrão</option>
+            </select>
+            @Html.ValidationMessageFor(x => x.Perfil)
+        </div>
+        <br />
+        
+        <a class="btn btn-secondary" asp-controller="Usuario" asp-action="Index" role="button">Voltar</a>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+
+    </form>
