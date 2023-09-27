@@ -40,6 +40,7 @@ namespace EscolaDefinitivo.Repositorio
             alunoDB.Nome = aluno.Nome;
             alunoDB.Telefone = aluno.Telefone;
             alunoDB.Email = aluno.Email;
+            alunoDB.CursoId = aluno.CursoId;
             _escolaContext.Alunos.Update(alunoDB);
             _escolaContext.SaveChanges();
             return alunoDB;

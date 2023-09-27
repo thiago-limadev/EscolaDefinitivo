@@ -11,6 +11,7 @@
 <form asp-controller="Aluno" asp-action="Atualizar" method="post">
 
     <input type="hidden" asp-for="@Model.Aluno.Id" />
+    <input type="hidden" asp-for="@Model.Cursos"/>
     <div class="form-group">
         <label for="Nome">Nome do Aluno</label>
         <input type="text" asp-for="@Model.Aluno.Nome" class="form-control" placeholder="Digite o nome do aluno">
@@ -30,8 +31,7 @@
     </div>
     <div class="form-group">
         <label for="CursoId">Selecione o Curso</label>
-        <select name="Curso" asp-for="@Model.Aluno.CursoId" asp-items="@Model.Cursos" class="form-control" ></select>
-        
+        <select asp-for="@Model.Aluno.CursoId" asp-items="@Model.Cursos" class="form-control" placeholder="Selecione o Curso"></select>        
     </div>
     <br />
     <a class="btn btn-secondary" asp-controller="Aluno" asp-action="Index" role="button">Voltar</a>

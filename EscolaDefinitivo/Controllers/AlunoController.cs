@@ -37,10 +37,10 @@ namespace EscolaDefinitivo.Controllers
             List<Curso> cursos = _cursoRepositorio.ListarTodos();
             Aluno aluno = _alunoRepositorio.BuscarporId(id);
             var editaralunoviewdata = new EditarAlunoViewData()
-            { 
-                Aluno = aluno, 
-                Cursos = cursos.Select(curso => new SelectListItem(curso.Nome, curso.Id.ToString())).ToList() 
-            
+            {
+                Aluno = aluno,
+                Cursos = cursos.Select(curso => new SelectListItem(curso.Nome, curso.Id.ToString())).ToList()
+
             };
             return View(editaralunoviewdata);
         }
@@ -102,7 +102,9 @@ namespace EscolaDefinitivo.Controllers
         {
             try
             {
-                var aluno = editarAlunoViewData.Aluno;  
+                var aluno = editarAlunoViewData.Aluno;
+                aluno.Curso = _cursoRepositorio.BuscarporId((int)aluno.CursoId);
+
 
                 if (ModelState.IsValid)
                 {
@@ -112,7 +114,7 @@ namespace EscolaDefinitivo.Controllers
                     return RedirectToAction("Index");
                 }
 
-                return View("Editar", aluno);
+                return View("Editar", editarAlunoViewData);
 
             }
             catch (Exception erro)
