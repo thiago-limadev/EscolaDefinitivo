@@ -1,4 +1,5 @@
-﻿using EscolaDefinitivo.Models;
+﻿using EscolaDefinitivo.Filters;
+using EscolaDefinitivo.Models;
 using EscolaDefinitivo.Models.ViewData;
 using EscolaDefinitivo.Repositorio;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace EscolaDefinitivo.Controllers
 {
+    [PaginaApenasUsuarioLogado]
     public class AlunoController : Controller
     {
         private readonly IAlunoRepositorio _alunoRepositorio;

@@ -30,6 +30,7 @@ namespace EscolaDefinitivo.Repositorio
         {
             // Grava no banco
             usuario.DatadeCadastro = DateTime.Now;
+            usuario.SetSenhaHash();
             _escolaContext.Usuarios.Add(usuario);
             _escolaContext.SaveChanges();
 

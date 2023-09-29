@@ -1,9 +1,11 @@
-﻿using EscolaDefinitivo.Models;
+﻿using EscolaDefinitivo.Filters;
+using EscolaDefinitivo.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace EscolaDefinitivo.Controllers
 {
+    [PaginaApenasUsuarioLogado]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

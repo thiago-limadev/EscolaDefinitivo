@@ -1,4 +1,5 @@
 ﻿using EscolaDefinitivo.Enums;
+using EscolaDefinitivo.Helpper;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -44,9 +45,13 @@ namespace EscolaDefinitivo.Models
 
         public bool SenhaValida(string senha)
         {
-            return Senha == senha;
+            return Senha == senha.GerarHash();
         }
 
+        public void SetSenhaHash() 
+        {
+            Senha = Senha.GerarHash();
+        }
 
     }
 }

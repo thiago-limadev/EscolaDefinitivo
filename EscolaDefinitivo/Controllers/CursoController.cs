@@ -1,9 +1,11 @@
-﻿using EscolaDefinitivo.Models;
+﻿using EscolaDefinitivo.Filters;
+using EscolaDefinitivo.Models;
 using EscolaDefinitivo.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EscolaDefinitivo.Controllers
 {
+    [PaginaApenasUsuarioLogado]
     public class CursoController : Controller
     {
         private readonly ICursoRepositorio _cursoRepositorio;
