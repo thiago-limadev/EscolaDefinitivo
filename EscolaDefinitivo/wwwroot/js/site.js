@@ -8,9 +8,32 @@ $(document).ready(function () {
     getDatatable('#tabela-alunos');
     getDatatable('#tabela-cursos');
     getDatatable('#tabela-usuarios');
+
+    // Remova o evento click anterior e adicione o novo evento
+    $(document).on('click', '.btn-total-alunos', function () {
+        var cursoId = $(this).attr('curso-id');
+        console.log('Botão Clicado');
+
+        // Remova esta linha $('#modalAlunosCurso').modal('show');
+
+        $.ajax({
+            type: 'GET',
+            url: '/Curso/ListarAlunosPorId/' + cursoId,
+            success: function (result) {
+                $('#listaAlunosMatriculados').html(result);
+                $('#modalAlunosCurso').modal('show'); // Use 'show' para abrir o modal
+            }
+        });
+    });
+
+    
+
+
+    $('#modalAlunosCurso .close').click(function () {
+        $('#modalAlunosCurso').modal('hide');
+    });
 });
-function getDatatable(id)
-{
+function getDatatable(id) {
     $(id).DataTable({
         "ordering": true,
         "paging": true,
@@ -40,9 +63,10 @@ function getDatatable(id)
         }
     });
 }
-   
+
 
 $('.close-alert').click(function () {
     $('.alert').hide('hide');
 });
+
 

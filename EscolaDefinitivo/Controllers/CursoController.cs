@@ -9,9 +9,12 @@ namespace EscolaDefinitivo.Controllers
     public class CursoController : Controller
     {
         private readonly ICursoRepositorio _cursoRepositorio;
-        public CursoController(ICursoRepositorio cursoRepositorio)
+        private readonly IAlunoRepositorio _alunoRepositorio;
+        public CursoController(ICursoRepositorio cursoRepositorio,
+                               IAlunoRepositorio alunoRepositorio)
         {
             _cursoRepositorio = cursoRepositorio;
+            _alunoRepositorio = alunoRepositorio;
         }
         public IActionResult Index()
         {
@@ -49,5 +52,12 @@ namespace EscolaDefinitivo.Controllers
             _cursoRepositorio.Atualizar(curso);
             return RedirectToAction("Index");
         }
+
+        public IActionResult ListarAlunosPorId(int id)
+        {
+            List<Aluno> alunos = _alunoRepositorio.BuscarTodos(id);
+            return PartialView("_AlunosCurso", alunos);
+        }
+
     }
 }

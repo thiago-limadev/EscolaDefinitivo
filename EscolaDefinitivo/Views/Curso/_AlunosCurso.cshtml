@@ -1,0 +1,32 @@
+﻿@model List<Aluno>
+
+<table class="table" id="tabela-alunos">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID do Aluno</th>
+            <th scope="col">Nome</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Telefone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (Aluno aluno in Model)
+            {
+                <tr>
+                    <th scope="row">@aluno.Id</th>
+                    <td>@aluno.Nome</td>
+                    <td>@aluno.Email</td>
+                    <td>@aluno.Telefone</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">Nenhum aluno encontrado.</td>
+            </tr>
+        }
+    </tbody>
+</table>

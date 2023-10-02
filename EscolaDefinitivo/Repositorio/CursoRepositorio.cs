@@ -1,5 +1,6 @@
 ﻿using EscolaDefinitivo.Data;
 using EscolaDefinitivo.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EscolaDefinitivo.Repositorio
 {
@@ -19,7 +20,9 @@ namespace EscolaDefinitivo.Repositorio
 
         public List<Curso> ListarTodos()
         {
-            return _escolaContext.Cursos.ToList();
+            return _escolaContext.Cursos
+                .Include(x => x.Alunos)
+                .ToList();
         }
         public Curso Adicionar(Curso curso)
         {

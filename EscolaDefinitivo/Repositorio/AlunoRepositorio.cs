@@ -60,5 +60,10 @@ namespace EscolaDefinitivo.Repositorio
             return true;
 
         }
+
+        public List<Aluno> BuscarTodos(int cursoId)
+        {
+            return _escolaContext.Alunos.Where(x => x.CursoId == cursoId).ToList();
+        }
     }
 }

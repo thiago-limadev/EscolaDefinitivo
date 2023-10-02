@@ -22,6 +22,11 @@ namespace EscolaDefinitivo.Repositorio
             return _escolaContext.Usuarios.FirstOrDefault(x => x.Id == id);
         }
 
+        public Usuario BuscarPorEmailELogin(string email, string login)
+        {
+            return _escolaContext.Usuarios.FirstOrDefault(x => x.Email.ToUpper() == email.ToUpper() && x.Login.ToUpper() == login.ToUpper());
+        }
+
         public List<Usuario> ListarTodos()
         {
             return _escolaContext.Usuarios.ToList();
@@ -57,6 +62,24 @@ namespace EscolaDefinitivo.Repositorio
 
         }
 
+        public Usuario AlterarSenha(AlterarSenhaModel alterarSenhaModel) 
+        {
+            Usuario usuarioDB = BuscarporId(alterarSenhaModel.Id);
+
+            if(usuarioDB == null) throw new Exception("Houve um erro na atualização da senha, usuário não encontrado!");
+
+            if(!usuarioDB.SenhaValida(alterarSenhaModel.SenhaAtual)) throw new Exception("Senha atual inválida, por favor verifique a senha informada!");
+
+            if(usuarioDB.SenhaValida(alterarSenhaModel.NovaSenha)) throw new Exception("Nova Senha deve ser diferente da senha atual!");
+
+            usuarioDB.SetNovaSenha(alterarSenhaModel.NovaSenha);
+            usuarioDB.DatadeAtualizacao = DateTime.Now;
+
+            _escolaContext.Usuarios.Update(usuarioDB);
+            _escolaContext.SaveChanges();   
+
+            return usuarioDB;
+        }
 
        
         public bool Apagar(int id)
@@ -72,5 +95,7 @@ namespace EscolaDefinitivo.Repositorio
             return true;
 
         }
+
+       
     }
 }

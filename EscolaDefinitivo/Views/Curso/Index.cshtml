@@ -3,7 +3,10 @@
 @{
     ViewData["Title"] = "Lista de Cursos";
 }
-
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
 <div class="text-center">
     <h1>Listagem de Cursos</h1>
 
@@ -16,9 +19,10 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nome</th>                
+                <th scope="col">Nome</th>
+                <th scope="col"> Alunos Matriculados</th>
                 <th scope="col"></th>
-                
+
             </tr>
         </thead>
         <tbody>
@@ -28,9 +32,15 @@
                 {
                     <tr>
                         <th scope="row">@curso.Id</th>
-                        <td>@curso.Nome</td>                        
-                       <td>
-                            <div  class="btn-group" role="group" aria-label="Exemplo básico">
+                        <td>@curso.Nome</td>
+                        <td>
+                            <a href="javascript:" curso-id="@curso.Id" class="btn btn-success btn-sm btn-total-alunos">
+                                @(curso.Alunos != null && curso.Alunos.Any() ? curso.Alunos.Count() : 0)
+
+                            </a>
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Exemplo básico">
                                 <a role="button" class="btn btn-secondary" asp-route-id="@curso.Id" asp-controller="Curso" asp-action="Editar">Editar</a>
                                 <a role="button" style="margin-left:5px" class="btn btn-danger" asp-route-id="@curso.Id" data-toggle="modal" data-target="#ExemploModalCentralizado_@curso.Id">Excluir</a>
 
@@ -56,9 +66,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
                             </div>
                         </td>
                     </tr>
@@ -67,4 +74,20 @@
         </tbody>
 
     </table>
-</div>
+
+
+    <div id="modalAlunosCurso" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Listagem Alunos</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="listaAlunosMatriculados"></div>
+                </div>
+            </div>
+        </div>
+    </div>
