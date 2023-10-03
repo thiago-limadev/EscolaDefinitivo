@@ -88,7 +88,11 @@ namespace EscolaDefinitivo.Controllers
                     {
                         string novaSenha = usuario.GerarNovaSenha();
                         
-                        string mensagem = $"Sua nvoa senha é: {novaSenha}";
+                        var urlAlterarSenha = Url.Action("Index", "AlterarSenha", null, Request.Scheme);
+
+
+                        string mensagem = $"Sua nvoa senha é: {novaSenha}. Após realizar o Login, acesse o site para redefinir a sua senha: {urlAlterarSenha}.";
+
 
                         bool emailEnviado = _email.Enviar(usuario.Email, "Nova Senha", mensagem);
 

@@ -1,8 +1,35 @@
 ﻿@{
-    ViewData["Title"] = "Pagina Inicial";
+    ViewData["Title"] = "Página Inicial";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Bem Vindo ao Futuro</h1>
-    <p>Novidades em breve !</p>
+<body>
+<div class="page-background-main"></div>
+    
+    <div class="container">
+        <div class="text-center">
+            <h1 class="display-4">Bem Vindo</h1>
+            <p>Olá, sou eu, Thiago o desenvolvedor por trás desta aplicação! Estou muito feliz por ter você por aqui.</p>
+            <p>Sinta-se à vontade para explorar todas as funcionalidades e recursos! </p>
+            <p>E lembre-se, se surgir qualquer dúvida, sugestão ou precisar de ajuda, estou sempre disponível para responder, entre em contato comigo via  <a href="https://www.linkedin.com/in/thiago-limadev/">linkedin</a>!</p>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <!-- Coluna para o menu de ações rápidas -->
+            <div class="col-md-12 text-center">
+                <h2 class="font-weight-bold">Comece Agora</h2>
+                <div class="btn-toolbar justify-content-center mt-4" role="toolbar" aria-label="Ações Rápidas">
+                    <div class="btn-group mr-4" role="group">
+                        <a type="button" class="btn btn-primary btn-lg" asp-controller="Aluno" asp-action="Criar">Adicionar Aluno</a>
+                    </div>
+                    <div class="btn-group" role="group">
+                        <a type="button" style="margin-left:5px" class="btn btn-success btn-lg" asp-controller="Curso" asp-action="Criar">Adicionar Curso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+</body>
