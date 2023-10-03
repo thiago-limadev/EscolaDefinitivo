@@ -61,10 +61,10 @@ body {
 .navbar-brand.centered-text {
     text-align: center;
     width: 100%;
-    font-family: 'DejaVu Sans Mono', monospace; /* Substitua 'NomeDaSuaFonte' pela fonte desejada */
-    font-weight: normal; /* Se desejar negrito */
-    font-size: 40px; /* Tamanho da fonte */
-    color: #333; /* Cor da fonte desejada */
+    font-family: 'DejaVu Sans Mono', monospace;
+    font-weight: normal; 
+    font-size: 40px; 
+    color: #333;
 }
 
 .page-background {
@@ -73,7 +73,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, #e0f1ff, #ffffff); /* Gradiente de azul para branco */
+    background: linear-gradient(to top, #e0f1ff, #ffffff); 
     z-index: -1;
 }
 
@@ -84,13 +84,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #f0f0f0, #c9b4d9); /* Gradiente de quase branco a lilás mais forte */
+    background: linear-gradient(to bottom, #f0f0f0, #c9b4d9); 
     z-index: -1;
 }
 
 
 .text-dark {
-    color: #333; /* Substitua #333 pela cor desejada (por exemplo, preto) */
+    color: #333;
 }
 
 
