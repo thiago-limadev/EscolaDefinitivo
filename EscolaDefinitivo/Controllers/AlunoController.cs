@@ -2,6 +2,7 @@
 using EscolaDefinitivo.Models;
 using EscolaDefinitivo.Models.ViewData;
 using EscolaDefinitivo.Repositorio;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
@@ -46,7 +47,7 @@ namespace EscolaDefinitivo.Controllers
             };
             return View(editaralunoviewdata);
         }
-
+        
         public IActionResult Apagar(int id)
         {
             try

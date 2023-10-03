@@ -1,48 +1,78 @@
-html {
-  font-size: 14px;
-}
+/* CSS personalizado para Escola Definitivo */
 
-@media (min-width: 768px) {
-  html {
+/* Defina o tamanho da fonte base */
+html {
     font-size: 16px;
-  }
 }
 
+/* Efeito de foco para botões e campos de entrada */
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+/* Estilos gerais para o layout da página */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 
-.field-validation-error{
-    color:red;
+/* Estilização de mensagens de erro */
+.field-validation-error {
+    color: red;
 }
 
-.close-alert{
-    position:absolute;
-    right:-10px;
+/* Estilo para o botão de fechar alertas */
+.close-alert {
+    position: absolute;
+    right: -10px;
     top: -15px;
     border-radius: 15px;
     width: 30px;
     height: 35px;
 }
 
+/* Estilo para cartões personalizados */
 .custom-card {
-    border: 2px solid #333; /* Espessura da borda */
-    border-radius: 10px; /* Cantos arredondados */
-    padding: 20px;
-    margin-top: -50px; /* Distância do topo */
+    border: 3px solid #333;
+    border-radius: 15px;
+    padding: 40px;
+    margin: 0 auto;
     background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 600px;
 }
 
     .custom-card h3 {
-        margin-top: -20px; /* Distância entre o título e o formulário */
+        margin-top: -20px;
     }
+
+/* Estilo para alinhar o texto à esquerda abaixo de um botão */
+.text-left-below-button {
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* Estilo para o logotipo centralizado na barra de navegação */
+.navbar-brand.centered-text {
+    text-align: center;
+    width: 100%;
+    font-family: 'DejaVu Sans Mono', monospace; /* Substitua 'NomeDaSuaFonte' pela fonte desejada */
+    font-weight: normal; /* Se desejar negrito */
+    font-size: 40px; /* Tamanho da fonte */
+    color: #333; /* Cor da fonte desejada */
+}
+
+.page-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #e0f1ff, #ffffff); /* Gradiente de azul para branco */
+    z-index: -1;
+}

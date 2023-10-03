@@ -25,9 +25,9 @@
 <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="custom-card">
         <form asp-controller="Login" asp-action="Logar" method="post">
-            <h3 class="text-center">Tela de Login</h3>
+            <h3 class="text-center"></h3>
             <div class="form-group">
-                <label for="exampleInputEmail1">Endereço de email</label>
+                <label for="exampleInputEmail1">Login</label>
                 <input type="text" class="form-control" id="Login" placeholder="User-Login" asp-for="Login">
                 @Html.ValidationMessageFor(x => x.Login)
             </div>
@@ -37,11 +37,12 @@
                 @Html.ValidationMessageFor(x => x.Senha)
             </div>
             </br>
-            <p class="mb-4 text-sm-center mx-auto">
-                Esqueceu a senha ?
-                <a asp-action="RedefinirSenha" asp-controller="Login" class="text-primary text-gradient font-weight-bold"> Redefinir senha</a>
+            <p class="mb-4 text-sm-center mx-auto d-flex align-items-center">
+                Esqueceu a senha <span style="margin-right: 5px;">?</span>
+                <a asp-action="RedefinirSenha" asp-controller="Login" class="ml-2 text-primary text-gradient font-weight-bold">Redefinir senha</a>
             </p>
-            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">Entrar</button>
+
         </form>
     </div>
 </div>
