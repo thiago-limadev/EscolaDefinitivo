@@ -100,7 +100,7 @@ Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
 * Quero deixar aqui registrado a minha gratidão aos meus amigos que me apoiaram durante essa jornada:
    - Jaqueline Lima - Esposa e amor da minha vida, que vem me apoiando e dando todo o suporte desde início da minha jornada como desenvolvedor;
    - Fabricio Begalli - Quem teve a ideia do desafio e me impulsionou a criar o projeto;
-   - Paulo Gabriel - Papel fudnamental para o aprendizado de relacionamento de tabelas, estrutura e organização do projeto
+   - Paulo Gabriel - Papel fundamental para o aprendizado de relacionamento de tabelas, estrutura e organização do projeto
    - William Viegas - Apoio no desenvolvimento sanando dúvidas e auxiliando compartilhando conhecimento e me incentivando a ir além;
    - Marlon Brando - Apoio moral rsrs, mesmo não conhecendo sobre a linguagem e sendo uma área diferente da sua esteve ao meu lado durante quase todo o desenvolvimento;
      
