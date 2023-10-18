@@ -8,8 +8,8 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 - [x] Elaboração do projeto
 - [x] Disponibilização de forma funcional no Github
+- [x] Implementação de Endereços com autopreencher
 - [ ] Estilização de paginas
-- [ ] Implementação de Endereços com autopreencher
 
      
 ## 🚀 Começando
