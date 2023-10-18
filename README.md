@@ -1,6 +1,6 @@
 # Escola Definitivo
 
-Aqui, a ideia é que você seja a pessoa responsável por tornar o processo de matrícula e acompanhamento dos cursos mais simples e eficiente. Você terá dois tipos de acesso: como administrador, que permite cadastrar e controlar os perfis dos usuários na plataforma, e como usuário padrão, que pode cadastrar alunos e escolher cursos. O projeto visa explorar conceitos como MVC, relacionamento de tabelas, Entity Framework e versionamento de código no GitHub. Estou empolgado em compartilhar essa jornada de aprendizado e espero que aproveitem cada etapa do caminho.
+Aqui, a ideia é que você seja a pessoa responsável por tornar o processo de matrícula e acompanhamento dos cursos mais simples e eficiente. Você terá dois tipos de acesso: como administrador, que permite cadastrar e controlar os perfis dos usuários na plataforma, e como usuário padrão, que pode cadastrar alunos e escolher cursos. O projeto visa explorar conceitos como MVC, relacionamento de tabelas, Entity Framework, consumo de API e versionamento de código no GitHub. Estou empolgado em compartilhar essa jornada de aprendizado e espero que aproveitem cada etapa do caminho.
 
 ### Ajustes e melhorias futuras 📌
 
