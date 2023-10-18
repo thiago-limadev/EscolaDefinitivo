@@ -3,15 +3,14 @@
     ViewData["Title"] = "Adicionar Aluno";
 }
 
-
 @if (TempData["MensagemErro"] != null)
 {
     <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
         @TempData["MensagemErro"]
     </div>
-
 }
+
 <div class="text-center">
     <h1>Dados do Aluno</h1>
 </div>
@@ -31,11 +30,45 @@
     <br/>
     <div class="form-group">
         <label for="Telefone">Telefone de Contato</label>
-        <input type="text" asp-for="Telefone" class="form-control" placeholder="XX XXXXX-XXXX">
+        <input type="text" asp-for="Telefone" class="form-control" placeholder="XX XXXXX-XXXX" maxlength="14">
         @Html.ValidationMessageFor(x => x.Telefone)
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="cep">CEP</label>
+        <input  type="text" asp-for="Cep" id="cep"  size="10" maxlength="9" class="form-control" />
+    </div>
+    <br/>
+    <div class="form-group">
+        <label for="rua">Rua</label>
+        <input type="text" asp-for="Logradouro" id="rua" size="60" class="form-control" />
+    </div>
+    <br/>
+    <div class="form-group">
+        <label for="numero">Numero</label>
+        <input type="text" asp-for="Numero" id="número" size="40" class="form-control" maxlength="5" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="complemento">Complemento</label>
+        <input type="text" asp-for="Complemento" id="complemento" size="40" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="bairro">Bairro</label>
+        <input  type="text" asp-for="Bairro" id="bairro" size="40" class="form-control" />
+    </div>
+    <br/>
+    <div class="form-group">
+        <label for="cidade">Cidade</label>
+        <input  type="text" asp-for="Localidade" id="cidade" size="40" class="form-control" />
+    </div>
+    <br/>
+    <div class="form-group">
+        <label for="uf">Estado</label>
+        <input type="text" asp-for="Uf" id="uf" size="2" class="form-control" />
     </div>
     <br/>
     <a class="btn btn-secondary" asp-controller="Aluno" asp-action="Index" role="button">Voltar</a>
     <button type="submit" class="btn btn-primary">Adicionar</button>
-   
 </form>

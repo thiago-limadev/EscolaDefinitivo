@@ -4,6 +4,7 @@ using EscolaDefinitivo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EscolaDefinitivo.Migrations
 {
     [DbContext(typeof(EscolaContext))]
-    partial class EscolaContextModelSnapshot : ModelSnapshot
+    [Migration("20231011085654_AdicionarEnderecoAlunos")]
+    partial class AdicionarEnderecoAlunos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,9 +57,6 @@ namespace EscolaDefinitivo.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Numero")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefone")
@@ -131,7 +131,7 @@ namespace EscolaDefinitivo.Migrations
                         new
                         {
                             Id = 1,
-                            DatadeCadastro = new DateTime(2023, 10, 11, 15, 24, 12, 651, DateTimeKind.Local).AddTicks(2929),
+                            DatadeCadastro = new DateTime(2023, 10, 11, 5, 56, 54, 428, DateTimeKind.Local).AddTicks(8499),
                             Email = "Admin@admin.com",
                             Login = "Admin",
                             Nome = "Ademiro",

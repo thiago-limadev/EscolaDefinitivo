@@ -106,7 +106,14 @@ namespace EscolaDefinitivo.Controllers
             try
             {
                 var aluno = editarAlunoViewData.Aluno;
-                aluno.Curso = _cursoRepositorio.BuscarporId((int)aluno.CursoId);
+                if (aluno.CursoId == null)
+                {
+                    aluno.Curso = null;
+                }
+                else
+                {
+                    aluno.Curso = _cursoRepositorio.BuscarporId((int)aluno.CursoId);
+                }
 
 
                 if (ModelState.IsValid)

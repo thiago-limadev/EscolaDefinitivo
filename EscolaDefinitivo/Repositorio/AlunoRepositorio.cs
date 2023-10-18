@@ -41,6 +41,13 @@ namespace EscolaDefinitivo.Repositorio
             alunoDB.Telefone = aluno.Telefone;
             alunoDB.Email = aluno.Email;
             alunoDB.CursoId = aluno.CursoId;
+            alunoDB.Cep = aluno.Cep;
+            alunoDB.Logradouro = aluno.Logradouro;
+            alunoDB.Complemento = aluno.Complemento;
+            alunoDB.Bairro = aluno.Bairro;
+            alunoDB.Localidade = aluno.Localidade;    
+            alunoDB.Uf = aluno.Uf;
+            alunoDB.Numero = aluno.Numero;
             _escolaContext.Alunos.Update(alunoDB);
             _escolaContext.SaveChanges();
             return alunoDB;
