@@ -9,7 +9,8 @@ $(document).ready(function () {
     getDatatable('#tabela-cursos');
     getDatatable('#tabela-usuarios');
 
-    
+
+
     $(document).on('click', '.btn-total-alunos', function () {
         var cursoId = $(this).attr('curso-id');
         console.log('Botão Clicado');
@@ -25,14 +26,30 @@ $(document).ready(function () {
             }
         });
     });
-
-    
+       
 
 
     $('#modalAlunosCurso .close').click(function () {
         $('#modalAlunosCurso').modal('hide');
     });
+
+    function typeEffectSlowly(element, text, speed) {
+        let index = 0;
+        function type() {
+            if (index < text.length) {
+                element.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, speed); // Delay in milliseconds
+            }
+        }
+        type();
+    }
+
+    const title = document.getElementById('typing-effect');
+    const text = 'Escola Definitivo';
+    typeEffectSlowly(title, text, 200);;
 });
+
 function getDatatable(id) {
     $(id).DataTable({
         "ordering": true,
@@ -138,3 +155,5 @@ $(document).ready(function () {
         }
     });
 });
+
+

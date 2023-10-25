@@ -84,7 +84,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, #f0f0f0, #c9b4d9); 
+    background: linear-gradient(to top, #e0f1ff, #ffffff);
     z-index: -1;
 }
 
@@ -93,6 +93,12 @@ body {
     color: #333;
 }
 
+/* Restante do seu CSS */
 
+/* Estilização do corpo para definir a cor de fundo em todas as páginas */
+body {
+    margin-bottom: 60px;
+    background: linear-gradient(to top, #e0f1ff, #ffffff);
+}
 
-
+/* Restante do seu CSS */
